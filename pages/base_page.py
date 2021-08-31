@@ -1,3 +1,5 @@
+import time
+
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import math
@@ -14,9 +16,9 @@ class BasePage():
         self.browser.get(self.url)
         pass
 
-    def is_element_present(self, selector, error):
+    def is_element_present(self, method_selector, selector_value):
         try:
-            self.browser.find_element(selector, error)
+            self.browser.find_element(method_selector, selector_value)
         except NoSuchElementException:
             return False
         return True
@@ -30,6 +32,7 @@ class BasePage():
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
+            time.sleep(5)
             print(f"Your code: {alert_text}")
             alert.accept()
         except NoAlertPresentException:
