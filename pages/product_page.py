@@ -1,8 +1,8 @@
-from pages.main_page import MainPage
 from pages.locators import ProductPageLocators
+from pages.login_page import LoginPage
 
 
-class ProductPage(MainPage):
+class ProductPage(LoginPage):
 
     def should_be_add_to_basket(self, ):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_AT_HEAD).text == self.browser.find_element(
