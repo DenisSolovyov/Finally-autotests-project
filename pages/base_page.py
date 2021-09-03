@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import math
-from pages.locators import BasePageLocators
+from pages.locators import BasePageLocators, ProductPageLocators
 
 
 class BasePage:
@@ -53,6 +53,14 @@ class BasePage:
 
         return True
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def message_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is disappeared, but should not be"
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -67,3 +75,8 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def open_basket(self):
+        self.browser.find_element(*BasePageLocators.BASKET_LINK).click()
+
+
