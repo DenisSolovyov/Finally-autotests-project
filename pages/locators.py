@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_LINK = (By.CSS_SELECTOR, "#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a")
+    BASKET_LINK = (
+    By.CSS_SELECTOR, "#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a")
     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner > p")
     BASKET_ITEMS = (By.CSS_SELECTOR, "#basket_formset > div")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
-
 
 
 class MainPageLocators:
@@ -25,8 +25,6 @@ class LoginPageLocators:
     REGISTER_BUTTON = (By.CSS_SELECTOR, "#register_form > button")
 
 
-
-
 class ProductPageLocators:
     GET_PRODUCT = (By.CSS_SELECTOR, "#add_to_basket_form > button")
     BASKET_COAST = (
@@ -36,4 +34,3 @@ class ProductPageLocators:
     PRODUCT_NAME_AT_HEAD = (By.CSS_SELECTOR, "#content_inner > article > div.row > div.col-sm-6.product_main > h1")
     PRODUCT_NAME_AT_BASKET = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
-
